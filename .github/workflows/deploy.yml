@@ -31,3 +31,6 @@ jobs:
 
       - name: 빌드된 파일을 S3에 업로드하기
         run: aws s3 cp ./dist s3://facebook-web-page-seyoon/ --recursive
+
+      - name: Cloudfront 캐시 무효화하기
+        run: aws cloudfront create-invalidation --distribution-id E3ODPCP192LLXD --paths "/*"
